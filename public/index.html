@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME Product Management</title>
+
+    <!-- CSS Files  -->
+    <link rel="stylesheet" href="./libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--  JS Files -->
+    <script src="./libs/jquery/dist/jquery.min.js"></script>
+    <script src="./libs/bootstrap/js/dist/index.js"></script>
+    <script src="./libs/angular/angular.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers/productListController.js"></script>
+</head>
+<body ng-app="productManagement">
+    <div class="container">
+        <div class="card" ng-controller="ProductListController as Ctrl">
+            <h1 class="card-title" style="padding-left: 1.25rem;">
+                Product List
+            </h1>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <button 
+                                    class="btn btn-primary"
+                                    type="button"
+                                    ng-click="Ctrl.toggleImage()">
+                                    {{Ctrl.showImage ? "Hide image" : "Show image"}}
+                                </button>
+                            </th>
+                            <th>Product</th>
+                            <th>Code</th>
+                            <th>Available</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in Ctrl.products">
+                            <th scope="row">
+                                <img ng-if="Ctrl.showImage"
+                                    ng-src="{{ product.imageUrl }}" 
+                                    title="{{ product.productName }}" 
+                                    style="width: 50px; margin: 2px">
+                            </th>
+                            <td>{{ product.productName }}</td>
+                            <td>{{ product.productCode }}</td>
+                            <td>{{ product.releaseDate }}</td>
+                            <td>{{ product.price | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

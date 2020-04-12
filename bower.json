@@ -1,0 +1,8 @@
+{
+    "name": "line-of-business-applications",
+    "version": "0.0.1",
+    "dependencies": {
+        "angular": "latest",
+        "bootstrap":"latest"
+    }
+}
