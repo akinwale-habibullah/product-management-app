@@ -1,7 +1,12 @@
 (
-    function() {
+    function(){
         "use strict";
         angular
-            .module('productManagement', []);
-    } ()
+            .module('productManagement',
+                [
+                    'common.services',
+                    'productResourceMock'
+                ]
+            );
+    }()
 );
