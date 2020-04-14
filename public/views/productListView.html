@@ -1,0 +1,39 @@
+<div class="card">
+    <h1 class="card-title" style="padding-left: 1.25rem;">
+        Product List
+    </h1>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <button 
+                            class="btn btn-primary"
+                            type="button"
+                            ng-click="Ctrl.toggleImage()">
+                            {{Ctrl.showImage ? "Hide image" : "Show image"}}
+                        </button>
+                    </th>
+                    <th>Product</th>
+                    <th>Code</th>
+                    <th>Available</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in Ctrl.products">
+                    <th scope="row">
+                        <img ng-if="Ctrl.showImage"
+                            ng-src="{{ product.imageUrl }}" 
+                            title="{{ product.productName }}" 
+                            style="width: 50px; margin: 2px">
+                    </th>
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.productCode }}</td>
+                    <td>{{ product.releaseDate }}</td>
+                    <td>{{ product.price | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -77,7 +77,7 @@
                 });
 
                 // Pass through any request for application files
-                $httpBackend.whenGET(/app/).passThrough();
+                $httpBackend.whenGET(/views/).passThrough();
             });
     }()
 );
