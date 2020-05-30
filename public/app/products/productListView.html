@@ -1,0 +1,45 @@
+<div class="card" ng-controller="ProductListCtrl as vm">
+    <h1 class="card-title" style="padding-left: 1.25rem;">
+        Product List
+    </h1>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <button 
+                            class="btn btn-primary"
+                            type="button"
+                            ng-click="vm.toggleImage()">
+                            {{vm.showImage ? "Hide image" : "Show image"}}
+                        </button>
+                    </th>
+                    <th>Product</th>
+                    <th>Code</th>
+                    <th>Available</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in vm.products">
+                    <th scope="row">
+                        <img ng-if="vm.showImage"
+                            ng-src="{{ product.imageUrl }}" 
+                            title="{{ product.productName }}" 
+                            style="width: 50px; margin: 2px">
+                    </th>
+                    <td>
+                        <a ui-sref="productDetail({ productId: product.productId })">{{ product.productName }}</a>
+                    </td>
+                    <td>{{ product.productCode }}</td>
+                    <td>{{ product.releaseDate }}</td>
+                    <td>{{ product.price | currency}}</td>
+                    <td>
+                        <a ui-sref="productEdit.info({ productId: product.productId })" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,8 +1,13 @@
 {
-    "name": "line-of-business-applications",
-    "version": "0.0.1",
-    "dependencies": {
-        "angular": "latest",
-        "bootstrap":"latest"
-    }
+  "name": "line-of-business-applications",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-mocks": "^1.7.9",
+    "angular-ui-router": "^1.0.26",
+    "jquery": "latest",
+    "popper.js": "v1.12.7",
+    "bootstrap": "latest"
+  }
 }

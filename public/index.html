@@ -7,55 +7,35 @@
     <title>ACME Product Management</title>
 
     <!-- CSS Files  -->
-    <link rel="stylesheet" href="./libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <!--  JS Files -->
-    <script src="./libs/jquery/dist/jquery.min.js"></script>
-    <script src="./libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="./libs/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script src="./libs/angular/angular.min.js"></script>
-    <script src="./libs/angular-resource/angular-resource.min.js"></script>
-    <script src="./libs/angular-mocks/angular-mocks.js"></script>
-    <script src="./libs/angular-ui-router/release/angular-ui-router.js"></script>
-
-    <script src="./js/services/productResourceMock.js"></script>
-    <script src="./js/services/common.services.js"></script>
-    <script src="./js/services/productResource.js"></script>
-
-    <script src="./js/app.js"></script>
-    <script src="./js/controllers/productListController.js"></script>
-    <script src="./js/controllers/productDetailController.js"></script>
-    <script src="./js/controllers/productEditController.js"></script>
-    <script src="./js/controllers/productAddController.js"></script>
 </head>
 
 <body ng-app="productManagement">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" ui-sref="home">ACME Product Management</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" ui-sref="home">Home<span class="sr-only">(current)</span></a>
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Products
+                        Products
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" ui-sref="productList">Product List</a>
                         <a class="dropdown-item" ui-sref="productDetail({productId: 0})">Product Detail</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" ui-sref="productEdit({productId: 0})">Edit Product</a>
-                        <a class="dropdown-item" ui-sref="productAdd({productId: 0})">Add Product</a>
+                        <a class="dropdown-item" ui-sref="productEdit.info({productId: 0})">Edit Product</a>
+                        <a class="dropdown-item" ui-sref="productAdd">Add Product</a>
                     </div>
-                  </li>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -63,10 +43,36 @@
             </form>
         </div>
     </nav>
-
+    
     <div class="container">
         <div ui-view></div>
     </div>
+    
+    
+    <!--  Library Scripts -->
+    <script src="/js/jquery/dist/jquery.min.js"></script>
+    <script src="/js/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/js/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!--  Angular Library Scripts -->
+    <script src="/js/angular/angular.min.js"></script>
+    <script src="/js/angular-resource/angular-resource.min.js"></script>
+    <script src="/js/angular-mocks/angular-mocks.js"></script>
+    <script src="/js/angular-ui-router/release/angular-ui-router.js"></script>
+    
+    <!--  Application Script -->
+    <script src="/js/app.js"></script>
+    
+    <!--  Common Services -->
+    <script src="/js/services/common.services.js"></script>
+    <script src="/js/services/productResource.js"></script>
+    <script src="/js/services/productResourceMock.js"></script>
+    
+    <!--  Product Controllers -->
+    <script src="/js/products/productListCtrl.js"></script>
+    <script src="/js/products/productDetailCtrl.js"></script>
+    <script src="/js/products/productEditCtrl.js"></script>
+    <script src="/js/products/productAddCtrl.js"></script>
 </body>
 
 </html>

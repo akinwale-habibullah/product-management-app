@@ -1,0 +1,70 @@
+<div>
+
+    <div class="card mb-3" style="margin-top:3rem;">
+        <h5 class="card-header">{{ vm.title }}</h5>
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <img ng-src="https://image-placeholder.com/images/actual-size/640x200.png" class="card-img" alt="..." title="product image">
+          </div>
+          <div class="col-md-4">
+            <div class="card-body">
+                
+                <p class="card-text"> {{ vm.product.description }} </p>
+
+                <div class="row">
+                    <div class="col-md-4">Price: </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"> {{ vm.product.price | currency }} </h5>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">Cost: </div>
+                    <div class="col-md-8">
+                        <p class="card-text"> {{ vm.product.cost | currency }} </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Code: </div>
+                    <div class="col-md-8">
+                        <p class="card-text"> {{ vm.product.productCode }} </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Release Date: </div>
+                    <div class="col-md-8">
+                        <p class="card-text"> {{ vm.product.releaseDate | date }} </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Category: </div>
+                    <div class="col-md-8">
+                        <p class="card-text">{{ vm.product.category }} </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Tags: </div>
+                    <div class="col-md-8">
+                        <p class="card-text"> {{ vm.product.tagList }} </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 mt-2">
+                        <a ui-sref="productList"  class="btn btn-primary btn-block">Back</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 mt-2">
+                        <!-- <a ui-sref="productEdit({productId: vm.product.productId})" class="btn btn-primary btn-block">Edit</a> -->
+                        <a ui-sref="productEdit({productId: 0})" class="btn btn-primary btn-block">Edit</a>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
