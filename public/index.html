@@ -30,10 +30,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" ui-sref="productList">Product List</a>
-                        <a class="dropdown-item" ui-sref="productDetail({productId: 0})">Product Detail</a>
+                        <!-- <a class="dropdown-item" ui-sref="productDetail({productId: 0})">Product Detail</a> -->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" ui-sref="productEdit.info({productId: 0})">Edit Product</a>
-                        <a class="dropdown-item" ui-sref="productAdd">Add Product</a>
+                        <a class="dropdown-item" ui-sref="productEdit.info({productId: 0})">Add Product</a>
+                        <!-- <a class="dropdown-item" ui-sref="productAdd">Add Product</a> -->
                     </div>
                 </li>
             </ul>
@@ -48,17 +48,22 @@
         <div ui-view></div>
     </div>
     
-    
     <!--  Library Scripts -->
     <script src="/js/jquery/dist/jquery.min.js"></script>
     <script src="/js/popper.js/dist/umd/popper.min.js"></script>
     <script src="/js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $('.toast').toast('show');
+    </script>
     
     <!--  Angular Library Scripts -->
     <script src="/js/angular/angular.min.js"></script>
     <script src="/js/angular-resource/angular-resource.min.js"></script>
     <script src="/js/angular-mocks/angular-mocks.js"></script>
     <script src="/js/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/js/angular-ui-router/release/stateEvents.js"></script>
+    <script src="/js/angular-ui-mask/dist/mask.js"></script>
+    <script src="/js/angular-bootstrap/ui-bootstrap.js"></script>
     
     <!--  Application Script -->
     <script src="/js/app.js"></script>

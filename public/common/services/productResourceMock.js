@@ -7,13 +7,13 @@
         
         app.run(function ($httpBackend){
 
-            // console.log('httpBackend');
+            console.log('httpBackend');
             var products = [
                 {
                     'productId': 1,
                     'productName': 'Leaf Rake',
                     'productCode': 'GDN-0011',
-                    'releaseDate': 'March 19, 2009',
+                    'releaseDate': new Date('March 19, 2009'),
                     'description': 'Leaf rake with 48-inch handle',
                     'cost': 9.00,
                     'price': 19.55,
@@ -25,7 +25,7 @@
                     'productId': 2,
                     'productName': 'Hammer',
                     'productCode': 'TBX-00148',
-                    'releaseDate': 'May 21, 2013',
+                    'releaseDate': new Date('May 21, 2013'),
                     'description': 'Curved claw steel hammer',
                     'cost': 1.00,
                     'price': 8.99,
@@ -37,7 +37,7 @@
                     'productId': 3,
                     'productName': 'Video Game Controller',
                     'productCode': 'GMG-0042',
-                    'releaseDate': 'October 15, 2002',
+                    'releaseDate': new Date('October 15, 2002'),
                     'description': 'Standard two-button video game controller',
                     'cost': 2.22,
                     'price': 35.95,
@@ -49,7 +49,7 @@
                     "productId": 4,
                     "productName": "Garden Cart",
                     "productCode": "GDN-0023",
-                    "releaseDate": "March  18, 2010",
+                    "releaseDate": new Date("March  18, 2010"),
                     "description": "15 gallon capacity rolling garden  cart",
                     "cost": 20.00,
                     "price": 32.99,

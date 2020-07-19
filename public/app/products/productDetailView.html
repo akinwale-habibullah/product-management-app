@@ -58,8 +58,10 @@
                         <a ui-sref="productList"  class="btn btn-primary btn-block">Back</a>
                     </div>
                     <div class="col-sm-12 col-md-6 mt-2">
+                        <a ui-sref="productEdit.info({ productId: vm.product.productId })" class="btn btn-primary btn-block">Edit</a>
+                        
                         <!-- <a ui-sref="productEdit({productId: vm.product.productId})" class="btn btn-primary btn-block">Edit</a> -->
-                        <a ui-sref="productEdit({productId: 0})" class="btn btn-primary btn-block">Edit</a>
+                        <!-- <a ui-sref="productEdit({productId: 0})" class="btn btn-primary btn-block">Edit</a> -->
                     </div>
                 </div>
 

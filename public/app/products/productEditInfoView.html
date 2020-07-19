@@ -1,3 +1,71 @@
-<div>
-    Basic Product Information
-</div>
+<form name="productForm" id="productForm">
+    <fieldset>
+        <legend class="mb-5">Basic Product Information</legend>
+
+        <div class="form-group row">
+            <label for="inputProductName" class="col-sm-12 col-md-2">Product Name</label>
+            <input id="inputProductName" 
+                type="text"
+                placeholder="Product Name" 
+                class="form-control col-sm-12 col-md-4"
+                ng-model="vm.product.productName"/>
+        </div>
+
+        
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-12 col-md-2">Description</label>
+            <input id="inputProductCode" 
+                class="form-control col-sm-12 col-md-4"
+                ui-mask="AAA-****"
+                ng-model="vm.product.productCode"></input>
+        </div>
+        
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-12 col-md-2">Availability</label>
+            
+            <div class="input-group col-sm-12 col-md-4" style="padding-left: 0px; padding-right: 0px;">
+                <input id="inputAvailabilityDate" 
+                    class="form-control"
+                    type="text"
+                    datepicker-popup="MMM dd, yyyy"
+                    is-open="vm.opened"
+                    ng-model="vm.product.releaseDate" />
+
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary"
+                        type="button"
+                        ng-click="vm.open($event)">Date</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-12 col-md-2">Description</label>
+            <textarea id="inputDescription" 
+                placeholder="Description" 
+                rows="3"
+                class="form-control col-sm-12 col-md-8"
+                ng-model="vm.product.description"></textarea>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-4 offset-md-2" style="padding-left: 0px;">
+                <span>
+                    <button class="btn btn-primary" 
+                            style="width: 80px; margin-right: 10px;"
+                            ng-click="vm.submit()">
+                        Save
+                        </button>
+                </span>
+
+                <span>
+                    <button class="btn btn-primary" 
+                            style="width: 70px;"
+                            ng-click="vm.cancel()">
+                        Cancel
+                        </button>
+                </span>
+            </div>
+        </div>
+    </fieldset>
+</form>

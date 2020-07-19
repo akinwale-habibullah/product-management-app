@@ -3,11 +3,14 @@
         "use strict";
 
         var app = angular
-            .module('productManagement', [
-                'common.services',
-                'ui.router',
-                'productResourceMock'
-            ]);
+                    .module('productManagement', [
+                        'common.services',
+                        'ui.router',
+                        'ui.router.state.events',
+                        'ui.mask',
+                        'ui.bootstrap',
+                        'productResourceMock'
+                    ]);
 
         app.config([
             '$stateProvider',
