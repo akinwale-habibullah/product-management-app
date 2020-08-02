@@ -7,7 +7,6 @@
         
         app.run(function ($httpBackend){
 
-            console.log('httpBackend');
             var products = [
                 {
                     'productId': 1,
@@ -106,5 +105,5 @@
             $httpBackend.whenGET(/app/).passThrough();
 
         });
-    }()
+    } ()
 );

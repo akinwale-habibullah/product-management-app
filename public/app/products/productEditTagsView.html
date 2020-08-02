@@ -1,4 +1,4 @@
-<form name="productForm" id="productForm">
+<form name="productForm" id="productForm" class="needs-validation" novalidate>
     <fieldset>
         <legend class="mb-5">Product Search Tags</legend>
         
@@ -6,10 +6,14 @@
             <label for="inputSearchTags" class="col-sm-12 col-md-2">Search Tags</label>
             
             <div class="input-group col-sm-12 col-md-8" style="padding-left: 0px; padding-right: 0px;">
-                <input id="inputSearchTags" 
-                    class="form-control"
+                <input class="form-control"
+                    ng-class="{'is-invalid': productForm.inputSearchTags.$invalid}"
+                    id="inputSearchTags"
+                    name="inputSearchTags"
                     type="text"
-                    ng-model="vm.tag" />
+                    placeholder="Demo Tag"
+                    ng-model="vm.tag"
+                    ngClass="{{ }}" />
                     
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" 
@@ -48,7 +52,7 @@
         <span>
             <button class="btn btn-primary" 
                     style="width: 80px; margin-right: 10px;"
-                    ng-click="vm.submit()">
+                    ng-click="vm.submit(productForm.$valid)">
                 Save
                 </button>
         </span>

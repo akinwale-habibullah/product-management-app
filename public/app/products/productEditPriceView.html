@@ -1,3 +1,122 @@
-<div>
-    Basic Product Price
-</div>
+<form name="productPriceForm" id="productPriceForm" class="needs-validation" novalidate style="position: relative;">
+    <fieldset>
+        <legend class="mb-5">Product Price Details</legend>
+
+        <div class="form-group row">
+            <label for="inputProductCost" class="col-sm-12 col-md-2">Cost</label>
+            <input class="form-control col-sm-12 col-md-4 push-md-4"
+                ng-class="{'is-invalid': productPriceForm.inputProductCost.$invalid &&
+                    productPriceForm.inputProductCost.$dirty}"
+                id="inputProductCost" 
+                name="inputProductCost" 
+                type="text"
+                placeholder="Our Cose (required)" 
+                ng-model="vm.product.cost" />
+            <div class="invalid-feedback col-sm-12 col-md-4">
+                <span ng-show="productForm.inputProductName.$error.required">
+                    Product cost is required
+                </span>
+            </div>
+        </div>
+
+        
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2">Calculate Price</label>
+            <div class="col-sm-12 col-md-8 pl-0">
+                <div class="btn-group" role="group">
+                    <button type="button"
+                            class="btn"
+                            ng-class="{'btn-secondary': vm.marginType === 'percentage',
+                                        'btn-outline-secondary': vm.marginType !== 'percentage'}"
+                            ng-click="vm.selectMarkup('percentage')">Markup %</button>
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            ng-class="{'btn-secondary': vm.marginType === 'dollars',
+                                        'btn-outline-secondary': vm.marginType !== 'dollars'}"
+                            ng-click="vm.selectMarkup('amount')">Markup $</button>
+                </div>
+
+                <div class="form-group row mt-2">
+                    <h5 class="col-sm-12 col-md-12 h6">
+                        <em>Markup {{ vm.marginType === 'percentage' ? 'Percentage' : 'Amount'}} </em>
+                    </h5>
+
+                    <div class="form-group row pl-3 ml-0" ng-if="vm.marginType === 'percentage'">
+                        <input class="form-control col-sm-12 col-md-7 mr-1"
+                            ng-class="{'is-invalid': productPriceForm.inputPriceCalculation.$invalid &&
+                                productPriceForm.inputPriceCalculation.$dirty}"
+                            name="inputPriceCalculation"
+                            type="number"
+                            placeholder="Markup % (required)"
+                            ng-model="vm.marginPercent" />
+                        <button type="submit"
+                                title="Calculate the price based on the code plus a markup"
+                                class="form-control col-sm-12 col-md-4 btn btn-outline-primary"
+                                ng-click="vm.calculatePrice()">Calculate</button>
+                    </div>
+
+                    <div class="form-group row pl-3 ml-0" ng-if="vm.marginType === 'amount'">
+                        <input class="form-control col-sm-12 col-md-7 mr-1"
+                            ng-class="{'is-invalid': productForm.inputPriceCalculation.$invalid &&
+                                productForm.inputPriceCalculation.$dirty}"
+                            name="inputPriceCalculation"
+                            type="text"
+                            placeholder="Markup $ (required)"
+                            ng-model="vm.marginAmount" />
+                        <button type="submit" 
+                                title="Calculate the price based on the code plus a markup"
+                                class="form-control col-sm-12 col-md-4 btn btn-outline-primary"
+                                ng-click="vm.calculatePrice()">Calculate</button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="inputPrice" class="col-sm-12 col-md-2">Price</label>
+            
+            <div class="input-group col-sm-12 col-md-4" style="padding-left: 0px; padding-right: 0px;">
+                <input class="form-control"
+                    ng-class="{'is-invalid': productForm.inputPrice.$invalid &&
+                                productForm.inputPrice.$dirty}"
+                    id="inputPrice"
+                    name="inputPrice" 
+                    type="text"
+                    placeholder="Price"
+                    ng-model="vm.product.price"
+                    style="text-align: right;" />
+                    <div class="invalid-feedback col-sm-12 col-md-4">
+                        <span ng-show="productForm.inputPrice.$error.required">
+                            Product price is required and must be a number
+                        </span>
+                    </div>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2">Margin</label>
+            
+            <label class="form-control col-sm-12 col-md-4" id="margin">{{ vm.calculateMargin() | number: 0}}{{ vm.marginType === 'percentage' ? '%' : '$'}}</label>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-4 offset-md-2" style="padding-left: 0px;">
+                <span>
+                    <button class="btn btn-primary" 
+                            style="width: 80px; margin-right: 10px;"
+                            ng-click="vm.submit(productPriceForm.$valid)">
+                        Save
+                        </button>
+                </span>
+
+                <span>
+                    <button class="btn btn-primary" 
+                            style="width: 70px;"
+                            ng-click="vm.cancel()">
+                        Cancel
+                        </button>
+                </span>
+            </div>
+        </div>
+    </fieldset>
+</form>
